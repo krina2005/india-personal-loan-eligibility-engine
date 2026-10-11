@@ -131,11 +131,6 @@ Listed rules (age, salary, CIBIL) are only part of the picture. To find the rest
 
 `data/input_variables.csv` is the full dictionary: **63 variables** with name, label, type, unit, description, whether required, allowed values, validation and **where the value comes from**.
 
-| Dimension | Breakdown |
-|---|---|
-| Type | float 17 · int 13 · enum 12 · string 9 · date 6 · boolean 6 |
-| Source (`provided_by`) | **Document 40** · **Applicant 13** · **Bureau 8** · Calculated 2 |
-
 **The 13 inputs the model and web form currently use**
 
 | Variable | Unit | Type | Description | Value comes from |
@@ -304,8 +299,6 @@ All numbers come from the data files or from running the engine on the 14 profil
 
 **7. Bajaj Finserv has the most usable data**, which is why it is the only lender that can come out "potentially eligible". That reflects documentation, **not** that it is the best or most lenient lender.
 
-**8. Poor documentation ≠ poor lender.** IIFL has the most conflicting rows (8); Canara, Bank of Baroda and PNB have 15–16 unknown rows each.
-
 ## 12. Limits of the model and known issues
 
 **Data limits**
@@ -330,8 +323,6 @@ All numbers come from the data files or from running the engine on the 14 profil
 | 7 | **Stored test results are stale** (see section 9) and `backend/tests/test_service.py` fails 8 of 20 checks against the current data because it compares to those stored results and to older expectations. | Test outputs in the repo cannot be trusted until regenerated and the tests are updated. |
 | 8 | **`tests/validate.py` has checks hard-coded to `True`**, and `README_APP.md` still says only 3 of 20 lenders are researched. | Some validations cannot fail; older docs are out of date. |
 | 9 | **`engine/engine.py` and the service file contain large blocks of old commented-out code.** | Hard to read; should be deleted. |
-
-I also could not run the **backend API tests** or the **frontend build** in my review environment (no network to install `pytest`, FastAPI or `node_modules`), so those are **not verified**. The engine/service tests that need no extra packages were run.
 
 ## 13. What I would add next
 
