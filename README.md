@@ -24,6 +24,8 @@
 13. [What I would add next](#13-what-i-would-add-next)
 14. [Repository structure](#14-repository-structure)
 15. [Setup and how to run](#15-setup-and-how-to-run)
+16. [Demo mode](#16-demo-mode)
+17. [Frontend screenshots](#17-frontend-screenshots)
 
 ---
 
@@ -220,6 +222,8 @@ For each lender the engine returns one of three decisions:
 
 **Rules the model does not do:** it does not claim approval, guarantee an amount, or produce an exact personal rate.
 
+> **Demo mode:** `engine/engine.py` and the two backend services now also support an optional **DEMO** mode that fills unresolved rules with labelled, hypothetical defaults. See [section 16](#16-demo-mode).
+
 ## 9. Test profiles and outputs
 
 `tests/profiles.json` has **14 synthetic profiles** (the problem asks for at least 10). Outputs: `tests/results.json` (full detail per lender) and `tests/results_flat.csv` (one row per profile × lender = 280 rows).
@@ -348,6 +352,7 @@ pl_eligibility/
 │   ├── lender_rules_detailed.csv  ← 556 rules with status, source, date
 │   ├── lender_rule_summary.csv    ← one row per lender (informational)
 │   ├── input_variables.csv        ← 63-variable dictionary
+│   ├── engine_config.json         ← STRICT/DEMO mode switch and demo defaults
 │   ├── sources.csv                ← 63 sources with access dates
 │   └── model_assumptions.json     ← policies, assumptions, data gaps
 ├── engine/
@@ -355,6 +360,8 @@ pl_eligibility/
 │   └── build_data.py              ← regenerates the CSVs
 ├── backend/                       ← FastAPI (api, schemas, services, tests)
 ├── frontend/                      ← React + Vite + TypeScript + Tailwind
+├── docs/
+│   └── screenshots/               ← frontend screenshots used in this README
 └── tests/
     ├── profiles.json              ← 14 synthetic test profiles
     ├── results.json               ← full output per profile
@@ -406,3 +413,102 @@ python backend\tests\test_service.py        # engine/service tests (no pytest ne
 pytest backend\tests                        # service + API tests
 cd frontend; npm run build                  # type-check + production build
 ```
+
+## 16. Demo mode
+
+**Why it exists:** in strict form, most lenders return `INSUFFICIENT_INFORMATION` because their rules are not public (see [section 9](#9-test-profiles-and-outputs) and [section 11](#11-insights)). Demo mode lets you see the full flow – pass/fail per lender, rate range, EMI, maximum amount – by filling each unresolved rule with a **clearly labelled, hypothetical default**. It is a **scenario**, not lender policy.
+
+**What changed in the code**
+
+| File | What it does for demo mode |
+|---|---|
+| `engine/engine.py` | Reads `data/engine_config.json`, validates it, and resolves **each rule separately**: use the applicable official CSV value if there is one; otherwise, if demo mode is on, use the labelled default. Every substituted value is returned with its status (`ESTIMATED`), basis and the reason the CSV value was not used. |
+| `backend/app/services/data_service.py` | Loads the data and config safely (BOM-safe CSV reading, header/ID/lender-reference checks) and passes the engine config into the API data. |
+| `backend/app/services/eligibility_service.py` | Adds the demo disclaimer, scenario counts, assumptions and fallback policy to the API response, and explains each result in plain English. |
+
+**How to switch mode** – edit `data/engine_config.json`:
+
+| Field | Meaning |
+|---|---|
+| `mode` | `STRICT` (published rules only) or `DEMO` |
+| `enabled` | Must be `true` for demo defaults to be used |
+| `fallback_on_unresolved_scope` | Use a default when a rule exists but its category/product/income basis/bureau cannot be matched safely |
+| `fallback_on_conflict` | Use a default when sources conflict (otherwise conflicts stay unresolved) |
+| `defaults` | The fixed demo values (below) |
+
+If the file is missing, the engine falls back to `STRICT` with demo off.
+
+**Demo defaults (all `ESTIMATED`, none is a lender rule)**
+
+| Rule | Demo value |
+|---|---|
+| Minimum age / maximum age at application | 21 / 60 years |
+| Minimum net monthly income | ₹25,000 |
+| Minimum CIBIL | 700 |
+| Employment scope | salaried and self-employed |
+| Amount range | ₹50,000 – ₹10,00,000 |
+| Tenure range | 12 – 60 months |
+| Nominal interest rate range | 12% – 24% p.a. |
+| Max total EMI / net income | 0.5 |
+
+**How a rule is resolved in demo mode**
+
+1. Pick the applicable `VERIFIED_OFFICIAL` row for the applicant (scope-matched by category, e.g. salaried / salary account / metro city).
+2. If it is usable, **use it** – the result is marked as official.
+3. If it is `UNKNOWN`, `CONFLICTING`, ambiguous in scope, or has an unclear basis (CIC/unspecified bureau, unspecified gross/net income), use the demo default **only if the config allows it**.
+4. Otherwise it stays unresolved and the lender shows `INSUFFICIENT_INFORMATION`.
+
+**What each demo result adds**
+
+| Field | Meaning |
+|---|---|
+| `assessment_mode` | `STRICT` or `DEMO` |
+| `decision_basis` | `PUBLISHED_RULE_FAILURE`, `MODEL_SCENARIO_FAILURE`, `MODEL_SCENARIO_PASS`, `PUBLISHED_RULE_SCREENING`, `APPLICANT_INFORMATION`, `LENDER_RULE_REVIEW` or `PRODUCT_UNAVAILABLE` |
+| `scenario_result` | `PASS`, `FAIL`, `INCOMPLETE` or `NOT_USED` |
+| `assumptions_used` | Every default used: rule, value, basis, why the CSV was not used, and the candidate rule/source IDs that were **not** used |
+| `rule_provenance` | For every rule checked: value, status, unit, basis, source and rule IDs |
+| `scenario_passed_rules`, `scenario_failed_rules` | Checks done on defaults, kept apart from verified checks |
+| `assessment_evidence_level` | `OFFICIAL_SCREENING`, `ASSUMED` or `MIXED_OFFICIAL_AND_ASSUMED` |
+| `requires_lender_review`, `approval_guaranteed`, `bank_rejection_claimed` | Always `true`, `false`, `false` |
+
+**Safeguards**
+- A demo failure is worded as "not eligible under the illustrative model defaults – **not a bank rejection**". A demo pass is "no approval guaranteed".
+- **Recommendation ignores demo results.** A best option is only given when at least two lenders pass using **no estimated rules** and with no unevaluated published rules. Otherwise the model says why no ranking is possible.
+- **L19 (IIFL)** is now enforced: if its "new sourcing unavailable" notice is present, it returns `INSUFFICIENT_INFORMATION` with `PRODUCT_UNAVAILABLE` and is never recommended.
+- Missing applicant inputs (for example a blank CIBIL score) are still reported as missing – defaults replace **lender rules**, never **applicant data**.
+- Demo defaults do **not** change the verified-rule coverage numbers in [section 7](#7-lender-rule-table) (the API says this in `/api/coverage`).
+
+**Result of running the 14 test profiles in both modes** (counts are across all 20 lenders, 280 checks, current data)
+
+| Mode | Potentially eligible | Not eligible | Insufficient information |
+|---|---:|---:|---:|
+| `STRICT` | 0 | 52 | 228 |
+| `DEMO` | 99 | 148 | 33 |
+
+In demo mode most "need info" results become pass/fail because the defaults fill the gaps. The 33 that remain are the missing-CIBIL profile (P10), plus L19 on every profile. **Read the 99 passes as "passes the hypothetical scenario", not as lender eligibility.** No profile gets a best option in either mode, because no lender passes without using an estimated rule.
+
+> The profile table in [section 9](#9-test-profiles-and-outputs) and the stored `tests/results*.json/csv` were produced before demo mode was added. Re-run `python engine\engine.py` to regenerate them with the current engine and `engine_config.json`.
+
+**Note on the demo UI:** the API returns `assessment_mode` in `/api/metadata`, `/api/coverage` and the eligibility response, so the frontend can show that results are demo scenarios.
+
+## 17. Frontend screenshots
+
+Screenshots of the running web app (backend on port 8000, frontend on port 5173). Images are stored in `docs/screenshots/`.
+
+**Landing page**
+
+![Landing page](docs/screenshots/01-landing.png)
+
+**Assessment form** (13 inputs grouped as Personal, Employment, Income, Credit profile, Existing obligations, Loan requirements)
+
+![Assessment form](docs/screenshots/02-assessment-form.png)
+
+**Results – overall summary and recommendation**
+
+![Results per lender](docs/screenshots/04-results-lenders.png)
+
+**Lender directory**
+
+![Lender directory](docs/screenshots/05-directory.png)
+
+To retake them: start the backend and frontend as in [section 15](#15-setup-and-how-to-run), open `http://localhost:5173`, and save each page under the file names above.
