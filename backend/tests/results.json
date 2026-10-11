@@ -1,0 +1,1402 @@
+[
+ {
+  "profile_id": "P01",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 150000,
+   "cibil_score": 790,
+   "existing_monthly_emi": 10000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 1000000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P02",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 80000,
+   "cibil_score": 610,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P03",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 70000,
+   "cibil_score": 770,
+   "existing_monthly_emi": 43000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P04",
+  "inputs": {
+   "age": 23,
+   "employment_type": "salaried",
+   "net_monthly_income": 80000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 2,
+   "total_experience_months": 2,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P05",
+  "inputs": {
+   "age": 32,
+   "employment_type": "self_employed",
+   "net_monthly_income": 90000,
+   "cibil_score": 740,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "OTHER",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": 60,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P06",
+  "inputs": {
+   "age": 21,
+   "employment_type": "salaried",
+   "net_monthly_income": 40000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P07",
+  "inputs": {
+   "age": 57,
+   "employment_type": "salaried",
+   "net_monthly_income": 100000,
+   "cibil_score": 780,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P08",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 24999,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 200000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L03",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P09",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 90000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Leh",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P10",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 80000,
+   "cibil_score": null,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P11",
+  "inputs": {
+   "age": 20,
+   "employment_type": "salaried",
+   "net_monthly_income": 40000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L05",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L08",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L19",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P12",
+  "inputs": {
+   "age": 61,
+   "employment_type": "salaried",
+   "net_monthly_income": 90000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P13",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 25000,
+   "cibil_score": 650,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 150000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ },
+ {
+  "profile_id": "P14",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 60000,
+   "cibil_score": 700,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "OTHER",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  },
+  "lenders": [
+   {
+    "lender_id": "L01",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L02",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L03",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L04",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L05",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L06",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L07",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L08",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L09",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L10",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L11",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L12",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L13",
+    "status": "POTENTIALLY_ELIGIBLE"
+   },
+   {
+    "lender_id": "L14",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L15",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L16",
+    "status": "NOT_ELIGIBLE"
+   },
+   {
+    "lender_id": "L17",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L18",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L19",
+    "status": "INSUFFICIENT_INFORMATION"
+   },
+   {
+    "lender_id": "L20",
+    "status": "INSUFFICIENT_INFORMATION"
+   }
+  ]
+ }
+]

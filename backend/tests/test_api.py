@@ -10,7 +10,7 @@ c = TestClient(app, raise_server_exceptions=False)
 OK = dict(age=32, employment_type="salaried", net_monthly_income=150000, existing_monthly_emi=0, requested_amount=500000, preferred_tenure_months=48, cibil_score=780, salary_account_bank="HDFC Bank")
 
 def test_health(): assert c.get("/api/health").json()["data_loaded"] is True
-def test_lenders(): j = c.get("/api/lenders").json(); assert len(j["lenders"]) == 20 and j["coverage"]["lenders_official_evidence"] == 3
+def test_lenders(): j = c.get("/api/lenders").json(); assert len(j["lenders"]) == 20 and j["coverage"]["lenders_official_evidence"] == 20
 def test_metadata(): assert any(f["name"] == "age" for f in c.get("/api/metadata").json()["fields"])
 def test_detail_404(): assert c.get("/api/lenders/NOPE").status_code == 404
 def test_eligibility_ok():

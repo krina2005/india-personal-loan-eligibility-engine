@@ -61,7 +61,7 @@ def test_sources_resolve():
     d = ds.dataset(); ids = {s["source_id"] for s in d["sources"]}
     assert all(x in ids for r in d["lender_rules_detailed"] for x in r["source_ids"].split(";") if x)
 def test_coverage_is_computed_from_data():
-    c = svc.coverage(); assert c["lenders_total"] == 20 and c["lenders_official_evidence"] == 3 and c["rules_unknown"] > 300 and c["sources_total"] == len(ds.dataset()["sources"])
+    c = svc.coverage(); assert c["lenders_total"] == 20 and c["lenders_official_evidence"] == 20 and c["rules_unknown"] > 200 and c["sources_total"] == len(ds.dataset()["sources"])
 def test_metadata_fields_are_known_engine_variables():
     names = {f["name"] for f in svc.metadata()["fields"]}; assert {"age", "net_monthly_income", "cibil_score"} <= names
 def test_lender_detail_and_unknown_id():

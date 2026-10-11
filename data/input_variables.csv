@@ -1,15 +1,64 @@
-name,label,type,unit,description,required,allowed_values,source_category,validation,used_by,provided_by
-age,Age,float,years,Completed age at application,Y,18-100,APPLICANT,document-verifiable (DOB),"L01,L02,L13 min/max age & maturity",APPLICANT
-employment_type,Employment type,enum,,salaried | self_employed,Y,"salaried,self_employed",APPLICANT,document,all (product scope),APPLICANT
-net_monthly_income,Net monthly income,float,INR/month,Take-home salary. Self-employed: documented monthly income only; NOT interchangeable with turnover or profit,Y,>=0,DOCUMENT,salary slips / bank statement,"L01,L02 min income; EMI ratio",DOCUMENT
-cibil_score,Credit score (CIBIL),int,points,Bureau score; null if unavailable,Y,300-900 or null,BUREAU,bureau pull with consent,"L01,L02,L13",BUREAU
-existing_monthly_emi,Existing monthly EMIs,float,INR/month,Sum of EMIs on active loans/cards,Y,>=0,BUREAU,bureau + declaration,L01 EMI/NMI cap; global affordability assumption,BUREAU
-salary_account_bank,Salary account bank,enum,,HDFC Bank | SBI | OTHER,N,,DOCUMENT,bank statement,"L01 (required), L02 (income tier)",DOCUMENT
-requested_amount,Requested loan amount,float,INR,Amount sought,Y,>0,APPLICANT,,compared with estimated max,APPLICANT
-preferred_tenure_months,Preferred tenure,int,months,Desired repayment period,Y,3-120,APPLICANT,,"tenure limits, EMI",APPLICANT
-city,City of residence,string,,Only used if a city rule exists,N,,APPLICANT,address proof,L13 calculator mentions city; no rule found,APPLICANT
-current_job_months,Months with current employer,int,months,No verified rule uses it yet; kept to test UNKNOWN handling,N,>=0,DOCUMENT,,none verified,DOCUMENT
-total_experience_months,Total work experience,int,months,No verified rule uses it yet,N,>=0,DOCUMENT,,none verified,DOCUMENT
-business_vintage_months,Business vintage,int,months,Self-employed only; no verified rule yet,N,>=0,DOCUMENT,ITR/GST,none verified,DOCUMENT
-employer_category,Employer category,string,,No verified rule uses it yet,N,,APPLICANT,,none verified,APPLICANT
-derived_obligation_ratio,(Derived) obligations ratio,float,ratio,(existing EMI + new EMI)/net income,calculated,0-10,MODEL,,L01 cap; global assumption,CALCULATED
+﻿name,label,type,unit,description,required,allowed_values,source_category,validation,used_by,provided_by
+application_date,Application date,date,YYYY-MM-DD,Date selecting applicable rules and offers,Y,ISO date,APPLICANT,Valid calendar date,all,APPLICANT
+date_of_birth,Date of birth,date,YYYY-MM-DD,Documented DOB used for calendar-aware age,Y,ISO date,DOCUMENT,Verify DOB; never use synthetic 30-day months for age,age rules,DOCUMENT
+age,Age,float,years,Derived age on application date,calculated,>=0,MODEL,Calendar-aware DOB calculation,all age rules,CALCULATED
+employment_type,Employment type,enum,,Applicant employment category,Y,salaried;self_employed_professional;self_employed_business;other,APPLICANT,Employment evidence,product scope,APPLICANT
+employer_category,Employer category,enum,,Published employer class; approved-employer membership not inferred,conditional,government;defence;PSU;MNC;public_limited;private_limited;LLP;trust;educational_institution;other;unknown,DOCUMENT,Employer evidence,L01;L04;L05;L10;L11;L12;L18,DOCUMENT
+employer_name,Employer name,string,,Legal employer name,conditional,,DOCUMENT,Employment evidence,employer assessment,DOCUMENT
+employment_confirmed,Confirmed employment,boolean,,Confirmed/permanent employment status,conditional,true;false;null,DOCUMENT,Employer confirmation,L11;L12,DOCUMENT
+net_monthly_income,Net monthly income,float,INR/month,Documented take-home income; not gross salary or turnover,Y,>=0 or null,DOCUMENT,Salary/bank evidence,net-income rules,DOCUMENT
+gross_monthly_salary,Gross monthly salary,float,INR/month,Salary before deductions for gross-income multipliers,conditional,>=0 or null,DOCUMENT,Salary evidence,L10;L11;L12,DOCUMENT
+documented_monthly_income_unspecified_basis,Monthly income basis unspecified,float,INR/month,Only used with explicitly unresolved threshold basis; not a safe substitute for net/gross,conditional,>=0 or null,DOCUMENT,Manual review; preserve basis,L08;L14;L16;L17,DOCUMENT
+annual_net_income_post_tax,Annual net income after tax,float,INR/year,Annual post-tax net income,conditional,>=0 or null,DOCUMENT,ITR/financials,L06 self-employed,DOCUMENT
+gross_annual_income_last_year,Last-year gross annual income,float,INR/year,Most recent annual gross income,conditional,>=0 or null,DOCUMENT,ITR,L11,DOCUMENT
+gross_annual_income_previous_year,Prior-year gross annual income,float,INR/year,Previous annual gross income,conditional,>=0 or null,DOCUMENT,ITR,L11,DOCUMENT
+annual_business_turnover,Annual business turnover,float,INR/year,Revenue not profit or disposable income,conditional,>=0 or null,DOCUMENT,Financials/tax evidence,L19 published historical rule,DOCUMENT
+annual_business_profit_after_tax,Annual business post-tax profit,float,INR/year,Profit separate from turnover,conditional,number or null,DOCUMENT,Financials/tax evidence,L16 assessment,DOCUMENT
+annual_household_income,Annual household income,float,INR/year,Declared household total not individual monthly salary,conditional,>=0 or null,APPLICANT,Product-specific verification,L18 instant,APPLICANT
+existing_monthly_emi,Existing monthly EMIs,float,INR/month,Existing loan/card instalments from bureau and declaration,Y,>=0 or null,BUREAU,Consent-based bureau and declaration,affordability,BUREAU
+other_monthly_obligations,Other obligations,float,INR/month,Separate obligations; include only where lender definition supports them,conditional,>=0 or null,DOCUMENT,Bank/declaration,FOIR definition-dependent,DOCUMENT
+credit_bureau,Credit bureau,enum,,Identity of score provider,conditional,CIBIL;Experian;CRIF;Equifax;other;unknown,BUREAU,Do not mix bureau scales,score matching,BUREAU
+cibil_score,CIBIL score,int,points,CIBIL score only; null for unavailable/no history,conditional,300-900 or null,BUREAU,NH/-1 not zero; consent-based access,CIBIL rules,BUREAU
+credit_bureau_score,Other or unspecified bureau score,int,points,Non-CIBIL/CIC score paired with bureau identity; not silently mapped to CIBIL,conditional,valid for specified bureau or null,BUREAU,Validate bureau-specific scale,L11 CIC and other bureau rules,BUREAU
+credit_history_status,Credit-history status,enum,,Separate scored no-history unavailable unknown,Y,scored;no_history;unavailable;unknown,BUREAU,NH/-1 classified no_history,L16;L17;unknown handling,BUREAU
+score_report_date,Score report date,date,YYYY-MM-DD,Date of score/report,conditional,ISO date or null,BUREAU,Freshness review,credit assessment,BUREAU
+current_job_months,Current employer tenure,int,months,Completed months with current employer,conditional,>=0 or null,DOCUMENT,Employment evidence,current-job rules,DOCUMENT
+total_experience_months,Total work experience,int,months,Total documented experience,conditional,>=0 or null,DOCUMENT,Employment history,total-experience rules,DOCUMENT
+continuous_service_months,Continuous service,int,months,Distinct from total experience/current-job tenure,conditional,>=0 or null,DOCUMENT,Service evidence,L01;L10;L12 subject to mapping,DOCUMENT
+business_vintage_months,Business vintage,int,months,Months business has operated,conditional,>=0 or null,DOCUMENT,Registration/ITR,L10;L16;L19,DOCUMENT
+postqualification_experience_months,Post-qualification experience,int,months,Experience since professional qualification,conditional,>=0 or null,DOCUMENT,Qualification/practice evidence,L06,DOCUMENT
+retirement_date,Retirement date,date,YYYY-MM-DD,Documented retirement boundary,conditional,ISO date or null,DOCUMENT,Employer evidence,maturity limits,DOCUMENT
+employment_contract_end_date,Contract end,date,YYYY-MM-DD,Contract expiry where repayment must finish before it,conditional,ISO date or null,DOCUMENT,Contract,L01,DOCUMENT
+salary_account_bank,Salary account bank,string,,Salary-credit bank; not equivalent to lender customer status,conditional,,DOCUMENT,Statements,L01;L05;L10,DOCUMENT
+salary_package_variant,Salary package variant,string,,Specific salary package controlling exceptions,conditional,,DOCUMENT,Bank evidence,L01,DOCUMENT
+salary_credit_history_months,Salary-credit history,int,months,Months salary credited to selected bank,conditional,>=0 or null,DOCUMENT,Statements,L12 conditional route,DOCUMENT
+existing_lender_customer,Existing lender customer,boolean,,Per-lender customer status,conditional,true;false;null,DOCUMENT,Bank evidence,L04,DOCUMENT
+bank_relationship_months,Bank relationship,int,months,Relationship with specified lender/bank,conditional,>=0 or null,DOCUMENT,Bank evidence,L10;L11,DOCUMENT
+annual_account_credits,Annual account credits,float,INR/year,Credits in defined year and accounts,conditional,>=0 or null,DOCUMENT,Bank statements,L11,DOCUMENT
+city,Residence city,string,,Residence city; not interchangeable with workplace,conditional,,DOCUMENT,Address evidence,location rules,DOCUMENT
+work_city,Workplace city,string,,Separate work location,conditional,,DOCUMENT,Employment evidence,L16 location ambiguity,DOCUMENT
+pincode,Residence pincode,string,,Serviceability identifier; marketing page not full serviceability map,conditional,6 digits,APPLICANT,Verify if used,location review,APPLICANT
+branch_location_category,Branch classification,enum,,Branch metro/urban/semiurban/rural classification,conditional,metro;urban;semiurban;rural;unknown,DOCUMENT,Official bank classification,L10,DOCUMENT
+residence_type,Housing tenure,enum,,Ownership/rental status,conditional,owned;rented;other;unknown,APPLICANT,Address evidence,L06,APPLICANT
+current_residence_months,Current address tenure,int,months,Months at current address,conditional,>=0 or null,DOCUMENT,Address evidence,L06;L17,DOCUMENT
+education_qualification,Qualification,enum,,Highest documented qualification,conditional,graduate;diploma;other;unknown,DOCUMENT,Qualification evidence,L05,DOCUMENT
+nationality,Nationality,string,,Nationality where explicit eligibility requires it,conditional,,DOCUMENT,Accepted evidence,nationality conditions,DOCUMENT
+residency_status,Residency status,enum,,Resident/NRI/PIO distinction,conditional,resident_indian;NRI;PIO;other;unknown,DOCUMENT,Accepted evidence,L10;L15;L16;L18,DOCUMENT
+requested_amount,Requested principal,float,INR,Requested sanctioned principal not net disbursal,Y,>0,APPLICANT,Positive amount,all,APPLICANT
+preferred_tenure_months,Preferred tenure,int,months,Desired repayment tenure,Y,>0,APPLICANT,Product-specific bounds,all,APPLICANT
+product_variant,Product variant,string,,Explicit lender product and applicant category mapping,Y,,APPLICANT,Match scoped rule catalogue,all,APPLICANT
+loan_purpose,Purpose,enum,,Purpose relevant to scope and regulatory overrides,Y,medical;wedding;travel;renovation;education;debt_consolidation;other_personal;business;speculation;unknown,APPLICANT,Declaration,purpose restrictions;RBI,APPLICANT
+guarantor_available,Suitable guarantor,boolean,,Suitable guarantor not merely a willing person,conditional,true;false;null,APPLICANT,Verify scheme criteria,L11,APPLICANT
+coobligant_available,Suitable co-obligant,boolean,,Co-obligant meeting scheme conditions,conditional,true;false;null,APPLICANT,Verify scheme criteria,L12,APPLICANT
+coapplicant_relationship,Relationship,string,,Guarantor/co-obligant/co-applicant relationship as applicable,conditional,,APPLICANT,Evidence,L11;L12 and permitted products,APPLICANT
+guarantor_gross_annual_income,Guarantor current annual income,float,INR/year,Separate guarantor last-year gross income,conditional,>=0 or null,DOCUMENT,Income evidence,L11 self-employed guarantee,DOCUMENT
+guarantor_previous_gross_annual_income,Guarantor prior annual income,float,INR/year,Separate guarantor previous-year gross income,conditional,>=0 or null,DOCUMENT,Income evidence,L11 self-employed guarantee,DOCUMENT
+guarantor_credit_score,Guarantor bureau score,int,points,Guarantor CIC score paired with bureau identity,conditional,bureau-valid score or null,BUREAU,Consent/scale verification,L11,BUREAU
+guarantor_credit_bureau,Guarantor bureau,enum,,Bureau identity for guarantor score,conditional,CIBIL;Experian;CRIF;Equifax;other;unknown,BUREAU,Bureau evidence,L11,BUREAU
+kyc_complete,KYC status,boolean,,Verification status only; no real PAN/Aadhaar in demo,conditional,true;false;null,DOCUMENT,Verification status,documents,DOCUMENT
+income_verification_available,Income evidence available,boolean,,Evidence availability not automatic lender acceptance,conditional,true;false;null,DOCUMENT,Verification status,all,DOCUMENT
+contracted_rate_type,Contracted rate type,enum,,Rate type required for prepayment applicability,conditional,fixed;floating;dual;unknown,DOCUMENT,Contract/KFS,RBI override,DOCUMENT
+sanction_or_renewal_date,Sanction/renewal date,date,YYYY-MM-DD,Date selecting applicable regulatory rules,conditional,ISO date or null,DOCUMENT,Sanction evidence,RBI prepayment,DOCUMENT
+emis_paid,Fully paid EMIs,int,count,Fully paid instalments at prepayment,conditional,>=0 or null,DOCUMENT,Loan statement,prepayment fee bands,DOCUMENT
+prepayment_source,Repayment source,enum,,Own funds versus balance transfer if relevant,conditional,own_funds;balance_transfer;other;unknown,APPLICANT,Verify if required,fee bands,APPLICANT
+derived_obligation_ratio,Derived obligations ratio,float,ratio,Existing plus proposed EMI divided by defined income; do not mix net/gross,calculated,>=0 or null,MODEL,Only when denominator/obligation definition known,affordability,CALCULATED

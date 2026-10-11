@@ -1,19 +1,3725 @@
 {
+  "dataset_version": "consolidated_public_rules_v2",
+  "research_date": "2026-10-11",
+  "phase": "DATA_ONLY",
+  "project_pdf_read": true,
+  "model_code_written": false,
+  "data_provenance": {
+    "baseline": "Six uploaded CSV/JSON files",
+    "research": "Consolidated recorded research from preceding conversation; no new web recrawl during file packaging",
+    "extracted_text_semantics": "Research evidence excerpts/paraphrases, not a guaranteed verbatim snapshot",
+    "original_rule_ids": "Active rule IDs regenerated after reconciliation; superseded filled baseline records archived below"
+  },
+  "selection": {
+    "lender_count": 20,
+    "basis": "Preserved bank/public-bank/NBFC shortlist from uploaded lenders.csv",
+    "verified_market_share_top20_ranking": false,
+    "rank": null,
+    "all_live_offers_available": false,
+    "unavailable_lender_ids": [
+      "L19"
+    ]
+  },
+  "research_coverage": {
+    "public_source_pass_lender_ids": [
+      "L01",
+      "L02",
+      "L03",
+      "L04",
+      "L05",
+      "L06",
+      "L07",
+      "L08",
+      "L09",
+      "L10",
+      "L11",
+      "L12",
+      "L13",
+      "L14",
+      "L15",
+      "L16",
+      "L17",
+      "L18",
+      "L19",
+      "L20"
+    ],
+    "all_internal_rules_known": false,
+    "all_variants_exhaustively_researched": false,
+    "live_application_availability_verified_for_all": false
+  },
+  "research_batches": [
+    {
+      "batch": 1,
+      "lender_ids": [
+        "L01",
+        "L02"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 2,
+      "lender_ids": [
+        "L03",
+        "L04"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 3,
+      "lender_ids": [
+        "L05",
+        "L06"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 4,
+      "lender_ids": [
+        "L07",
+        "L08"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 5,
+      "lender_ids": [
+        "L09",
+        "L10"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 6,
+      "lender_ids": [
+        "L11",
+        "L12"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 7,
+      "lender_ids": [
+        "L13",
+        "L14"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 8,
+      "lender_ids": [
+        "L15",
+        "L16"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 9,
+      "lender_ids": [
+        "L17",
+        "L18"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    },
+    {
+      "batch": 10,
+      "lender_ids": [
+        "L19",
+        "L20"
+      ],
+      "status": "RECORDED_PUBLIC_SOURCE_PASS"
+    }
+  ],
   "status_definitions": {
-    "VERIFIED_OFFICIAL": "Seen on the lender's own page in this session (snippet or fetch).",
-    "VERIFIED_SECONDARY": "Seen only on a comparison/third-party page; used as hard rule but flagged.",
-    "OBSERVED_IN_CALCULATOR": "Calculator description evidence; no numeric value.",
-    "ESTIMATED": "Modelling estimate.",
-    "UNKNOWN": "Not found/not researched; never zero/false/eligible.",
-    "CONFLICTING": "Sources disagree, unresolved; engine will not use the value.",
-    "NOT_APPLICABLE": "Not relevant."
+    "VERIFIED_OFFICIAL": "Observed statement on an official lender source in recorded research; publication evidence is not unconditional applicability, completeness or approval.",
+    "UNKNOWN": "Not established from usable evidence; blank active value.",
+    "CONFLICTING": "Relevant statements disagree; blank active value.",
+    "CONDITIONAL": "Summary depends on product/applicant category or an unresolved mapping; inspect detailed scoped rules.",
+    "INCOME_BASIS_UNCLEAR": "Published number exists but income basis is not explicit; not safe to substitute gross or net.",
+    "OFFICIAL_BLOG_OBSERVATION": "Official explanatory content; lower authority than applicable dated schedule/KFS/contract.",
+    "VERIFIED_SECONDARY": "Third-party or secondary-source evidence; not an automatic hard rejection rule.",
+    "ESTIMATED": "Explicit model assumption, not lender policy.",
+    "OBSERVED_IN_CALCULATOR": "Calculator observation; does not establish a contractual bound.",
+    "NOT_APPLICABLE": "Explicitly outside selected product/applicant scope."
+  },
+  "missing_value_policy": {
+    "csv": "",
+    "json": null,
+    "never_interpret_unknown_as": [
+      0,
+      false,
+      "eligible",
+      "no restriction"
+    ],
+    "false_requires_explicit_evidence": true
+  },
+  "source_policy": {
+    "authority_order": [
+      "Applicable regulator direction",
+      "Applicable dated KFS/contract",
+      "Applicable dated lender schedule/MITC",
+      "Product-specific official page",
+      "Official FAQ",
+      "Official blog/legacy page",
+      "Secondary source"
+    ],
+    "authority_order_does_not_automatically_resolve_conflicts": true,
+    "official_host_secondary_disclaimer_not_official_policy": true,
+    "access_date_not_effective_date": true,
+    "legacy_sources_S_and_M_retained_for_audit": true
+  },
+  "scope_policy": {
+    "personal_loans_only": true,
+    "exclude_business_instalment_loans": true,
+    "exclude_secured_and_credit_card_products": true,
+    "separate_regular_instant_preapproved_flexi_and_applicant_categories": true,
+    "overdraft_not_amortising_term_loan": true,
+    "published_product_not_live_offer": true
+  },
+  "rule_execution_policy": {
+    "VERIFIED_OFFICIAL_not_automatically_executable": true,
+    "require_unambiguous_product_category_income_basis_operator_and_timing": true,
+    "preferred_score_is_hard_minimum": false,
+    "calculator_slider_is_contractual_limit": false,
+    "generic_guidance_is_single_foir_threshold": false,
+    "ratio_range_can_be_guessed_into_single_cutoff": false,
+    "unspecified_age_timing_is_application_or_maturity_age": false,
+    "service_months_equal_current_job_months": false,
+    "salary_account_equals_customer_status": false,
+    "narrative_fees_require_manual_contract_mapping": true
+  },
+  "income_policy": {
+    "keep_gross_net_turnover_profit_household_residual_income_separate": true,
+    "automatic_gross_to_net_substitution": false,
+    "automatic_turnover_to_income_conversion": false,
+    "annual_monthly_conversion_only_for_same_defined_measure": true
+  },
+  "credit_policy": {
+    "no_history_not_score_zero": true,
+    "unknown_not_no_history": true,
+    "do_not_mix_bureau_scales": true,
+    "SMFG_750_conditional_on_credit_history": true,
+    "PNB_CIC_bureau_not_automatically_CIBIL": true
+  },
+  "availability_policy": {
+    "SOURCING_UNAVAILABLE": "Exclude current recommendations; retain published data for audit.",
+    "LIVE_OFFER_NOT_VERIFIED": "Public product evidence exists; current live personalised offer not verified."
   },
   "global_affordability_assumption": {
     "status": "ESTIMATED",
+    "enabled_by_default": false,
     "emi_to_income_cap": 0.5,
-    "method": "S02 (secondary) says most banks/NBFCs cap total EMIs at 50-60% of net income; 0.50 chosen conservatively.",
-    "use": "Estimate max loan only for lenders with no published ratio. Never a rejection threshold; raises a warning only.",
-    "confidence": "LOW"
+    "basis": "Retained baseline project scenario assumption, not a newly verified universal lender rule",
+    "automatic_rejection": false,
+    "automatic_approval": false
   },
-  "amount_calculation": "max_amount = min(published amount_max if known, PV(headroom EMI, rate_max, permitted tenure)); headroom = cap*income - existing EMI. rate_max used (conservative) since applicant rate unknown; if rate unknown, only published cap shown."
+  "amount_calculation": {
+    "label": "Illustrative affordability estimate, never lender sanction",
+    "published_ceiling_not_person_maximum": true,
+    "apply_scoped_verified_income_multiple": true,
+    "emi_headroom_requires_known_income_obligation_rate_and_tenure_definitions": true,
+    "unknown_rate_or_tenure_prevents_verified_emi_based_maximum": true,
+    "do_not_subtract_existing_emi_twice": true
+  },
+  "interest_policy": {
+    "starting_rate_not_expected_applicant_rate": true,
+    "nominal_not_APR": true,
+    "historical_mean_not_prediction": true,
+    "exact_personalised_rate": null,
+    "comparison_requires_comparable_amount_tenure_and_cost_data": true
+  },
+  "summary_policy": {
+    "informational_not_execution_table": true,
+    "scoped_conditional_conflicting_fields_left_blank": true,
+    "income_basis_unclear_numeric_observations_require_review": true,
+    "published_age_upper_bound_not_filled_into_application_or_maturity_without_evidence": true,
+    "summary_counts_derived_from_actual_active_detail_rows": true
+  },
+  "regulatory_policy": {
+    "selected_sources": [
+      "G01",
+      "G02",
+      "G03"
+    ],
+    "exhaustive_legal_review_completed": false,
+    "prepayment_override_requires": [
+      "Covered floating-rate status at repayment",
+      "Individual non-business purpose",
+      "Covered sanction/renewal on or after 2026-01-01"
+    ],
+    "not_all_personal_loans_foreclosure_free": true,
+    "real_LSP_DLA_deployment_requires_separate_compliance_review": true
+  },
+  "regulatory_rules": [
+    {
+      "regulation_id": "G_R01",
+      "rule_key": "kfs_required",
+      "scope": "new_retail_term_loans",
+      "requirement": "Provide KFS before loan contract in language understood by borrower",
+      "effective_from": "2024-10-01",
+      "source_ids": [
+        "G01"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Disclosure not approval cutoff",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R02",
+      "rule_key": "apr_definition",
+      "scope": "covered_term_loans",
+      "requirement": "APR includes interest and other credit-facility charges including recovered applicable third-party costs",
+      "effective_from": "2024-10-01",
+      "source_ids": [
+        "G01"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Nominal rate not total credit cost",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R03",
+      "rule_key": "kfs_validity",
+      "scope": "loan_tenor_at_least_7_days",
+      "requirement": "At least 3 working days",
+      "effective_from": "2024-10-01",
+      "source_ids": [
+        "G01"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Offer-validity metadata",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R04",
+      "rule_key": "undisclosed_fees",
+      "scope": "covered_term_loans",
+      "requirement": "Charges absent from KFS cannot be collected without explicit borrower consent",
+      "effective_from": "2024-10-01",
+      "source_ids": [
+        "G01"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Cost transparency",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R05",
+      "rule_key": "creditworthiness_inputs",
+      "scope": "digital_lending",
+      "requirement": "At minimum obtain and record age occupation and income",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Not numerical universal eligibility rules",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R06",
+      "rule_key": "multilender_comparison",
+      "scope": "RE_LSP_multiple_lenders",
+      "requirement": "Display matching offers lender amount tenor APR monthly repayment penal charges KFS link and unmatched lender names",
+      "effective_from": "2025-11-01",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Relevant if deployed as actual LSP/DLA",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R07",
+      "rule_key": "ranking_transparency",
+      "scope": "RE_LSP_multiple_lenders",
+      "requirement": "Unbiased objective display; ranking by publicly predisclosed metric",
+      "effective_from": "2025-11-01",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Document ranking basis",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R08",
+      "rule_key": "data_consent",
+      "scope": "digital_lending",
+      "requirement": "Need-based collection prior explicit consent and audit trail; revocation controls",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "No real data/bureau pull without consent",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R09",
+      "rule_key": "phone_access",
+      "scope": "digital_lending",
+      "requirement": "No contact-list call-log files/media or telephony access; limited onboarding access with explicit consent",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Avoid invasive features",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R10",
+      "rule_key": "cooling_off",
+      "scope": "digital_lending",
+      "requirement": "Exit with principal plus proportionate APR without penalty during initial period at least 1 day; disclosed reasonable processing fee may be retained",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Separate from ordinary foreclosure",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R11",
+      "rule_key": "money_flow",
+      "scope": "digital_lending",
+      "requirement": "Normally direct between borrower and RE bank accounts; specified exceptions; no LSP pass-through",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Operational deployment condition",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R12",
+      "rule_key": "data_storage",
+      "scope": "digital_lending",
+      "requirement": "India storage; overseas processing data deleted abroad and returned to India within 24 hours; LSP storage restricted",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Deployment/privacy condition",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R13",
+      "rule_key": "complaint_escalation",
+      "scope": "digital_lending",
+      "requirement": "RBI escalation after rejected/unsatisfactory response or no response within 30 days",
+      "effective_from": "2025-05-08",
+      "source_ids": [
+        "G02"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Consumer information",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R14",
+      "rule_key": "floating_nonbusiness_prepayment",
+      "scope": "individual_nonbusiness_floating_loans",
+      "requirement": "No partial/full prepayment charge regardless of source and no minimum lock-in",
+      "effective_from": "2026-01-01",
+      "source_ids": [
+        "G03"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Requires covered sanction/renewal date and rate type",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R15",
+      "rule_key": "dual_rate_prepayment",
+      "scope": "dual_special_rate_loans",
+      "requirement": "Whether rate is floating at prepayment determines applicability",
+      "effective_from": "2026-01-01",
+      "source_ids": [
+        "G03"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Rate type at payment required",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R16",
+      "rule_key": "prepayment_disclosure",
+      "scope": "covered_loans",
+      "requirement": "Disclose in sanction letter agreement and KFS where applicable; no undisclosed fee",
+      "effective_from": "2026-01-01",
+      "source_ids": [
+        "G03"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Contract verification",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    },
+    {
+      "regulation_id": "G_R17",
+      "rule_key": "lender_initiated_prepayment",
+      "scope": "covered_loans",
+      "requirement": "No prepayment charges when payment is at RE instance",
+      "effective_from": "2026-01-01",
+      "source_ids": [
+        "G03"
+      ],
+      "date_accessed": "2026-10-11",
+      "model_effect": "Additional fee override",
+      "status": "VERIFIED_OFFICIAL",
+      "notes": "Selected relevant requirement; not exhaustive legal advice. G03 scope is sanctions/renewals from effective date."
+    }
+  ],
+  "data_gaps": [
+    {
+      "lender_id": "L01",
+      "rule_id": "R0009",
+      "rule_key": "min_cibil",
+      "applicant_category": "SBI Personal Loan salaried",
+      "status": "UNKNOWN",
+      "reason": "No numerical official cutoff established.",
+      "source_ids": [
+        "N01"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0028",
+      "rule_key": "amount_max",
+      "applicant_category": "ALL",
+      "status": "CONFLICTING",
+      "reason": "Universal cap blank; variant mapping required.",
+      "source_ids": [
+        "N02",
+        "N03"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0032",
+      "rule_key": "tenure_min",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Calculator slider does not resolve conflict.",
+      "source_ids": [
+        "N02"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0033",
+      "rule_key": "tenure_max",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "72-month festive offer through 2026-11-30.",
+      "source_ids": [
+        "N02",
+        "N03"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0041",
+      "rule_key": "overdue_charges",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "No automatic implementation.",
+      "source_ids": [
+        "N38"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0044",
+      "rule_key": "min_age",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Leave active minimum blank.",
+      "source_ids": [
+        "N04",
+        "N05"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0048",
+      "rule_key": "preferred_credit_score",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Neither is hard minimum.",
+      "source_ids": [
+        "N04",
+        "N05"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0066",
+      "rule_key": "rate_min",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Unresolved current range.",
+      "source_ids": [
+        "N06",
+        "N40",
+        "N41"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0067",
+      "rule_key": "rate_max",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Unresolved current range.",
+      "source_ids": [
+        "N40",
+        "N41"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0092",
+      "rule_key": "min_cibil",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Blank hard cutoff.",
+      "source_ids": [
+        "N08"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0120",
+      "rule_key": "min_cibil",
+      "applicant_category": "FIRSTmoney_salaried",
+      "status": "CONFLICTING",
+      "reason": "Blank hard cutoff.",
+      "source_ids": [
+        "N11",
+        "N12"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0121",
+      "rule_key": "min_cibil",
+      "applicant_category": "FIRSTmoney_self_employed",
+      "status": "CONFLICTING",
+      "reason": "Blank hard cutoff.",
+      "source_ids": [
+        "N11",
+        "N12"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0122",
+      "rule_key": "amount_max",
+      "applicant_category": "FIRSTmoney",
+      "status": "CONFLICTING",
+      "reason": "Blank universal cap.",
+      "source_ids": [
+        "N11",
+        "N12"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0127",
+      "rule_key": "processing_fee",
+      "applicant_category": "FIRSTmoney",
+      "status": "CONFLICTING",
+      "reason": "Exact offer and zero-fee conditions need confirmation.",
+      "source_ids": [
+        "N12"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0134",
+      "rule_key": "tenure_max",
+      "applicant_category": "FedPremia_salaried",
+      "status": "CONFLICTING",
+      "reason": "No silent selection.",
+      "source_ids": [
+        "N13"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0147",
+      "rule_key": "foir_max",
+      "applicant_category": "Baroda Personal Loan",
+      "status": "UNKNOWN",
+      "reason": "No category assignment; not NMI ratio.",
+      "source_ids": [
+        "N14"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0148",
+      "rule_key": "tenure_max",
+      "applicant_category": "Baroda Personal Loan",
+      "status": "UNKNOWN",
+      "reason": "Do not assign universal tenure.",
+      "source_ids": [
+        "N14"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0212",
+      "rule_key": "amount_min",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank active minimum.",
+      "source_ids": [
+        "N18"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0221",
+      "rule_key": "min_age",
+      "applicant_category": "salaried_product",
+      "status": "UNKNOWN",
+      "reason": "Product mapping absent.",
+      "source_ids": [
+        "N19",
+        "N20",
+        "N21"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0222",
+      "rule_key": "published_age_upper_bound",
+      "applicant_category": "salaried_product",
+      "status": "UNKNOWN",
+      "reason": "Exceptions/timing unresolved.",
+      "source_ids": [
+        "N19",
+        "N20"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0223",
+      "rule_key": "min_income",
+      "applicant_category": "salaried_product",
+      "status": "CONFLICTING",
+      "reason": "Secondary-source disclaimer; no tier map.",
+      "source_ids": [
+        "N20"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0224",
+      "rule_key": "min_cibil",
+      "applicant_category": "salaried_product",
+      "status": "CONFLICTING",
+      "reason": "No reliable hard cutoff.",
+      "source_ids": [
+        "N19",
+        "N20"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0227",
+      "rule_key": "amount_max",
+      "applicant_category": "salaried_product",
+      "status": "CONFLICTING",
+      "reason": "Universal cap blank.",
+      "source_ids": [
+        "N19",
+        "N21"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0234",
+      "rule_key": "self_employed_scope",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "No active self-employed eligibility inferred.",
+      "source_ids": [
+        "N20"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0252",
+      "rule_key": "rate_min",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank active starting rate.",
+      "source_ids": [
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0253",
+      "rule_key": "rate_max",
+      "applicant_category": "personal_loan",
+      "status": "UNKNOWN",
+      "reason": "Current contractual maximum unestablished.",
+      "source_ids": [
+        "N24"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0254",
+      "rule_key": "processing_fee",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "No arbitrary selection.",
+      "source_ids": [
+        "N24",
+        "N25",
+        "N26"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0255",
+      "rule_key": "foreclosure_charges",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Applicable schedule/rate type required.",
+      "source_ids": [
+        "N24",
+        "N26"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0262",
+      "rule_key": "min_cibil",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank hard cutoff.",
+      "source_ids": [
+        "N27"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0272",
+      "rule_key": "processing_fee",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Unresolved current fee.",
+      "source_ids": [
+        "N27",
+        "N28"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0283",
+      "rule_key": "min_income",
+      "applicant_category": "regular_personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Page/version applicability unresolved.",
+      "source_ids": [
+        "N29",
+        "N30",
+        "N31"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0284",
+      "rule_key": "min_cibil",
+      "applicant_category": "regular_personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank hard cutoff.",
+      "source_ids": [
+        "N29",
+        "N30",
+        "N31"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0295",
+      "rule_key": "salary_slip_history_months",
+      "applicant_category": "regular_personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank exact history.",
+      "source_ids": [
+        "N29",
+        "N30"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0304",
+      "rule_key": "min_age",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Do not activate while unavailable.",
+      "source_ids": [
+        "N33",
+        "N34",
+        "N35"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0305",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Blank.",
+      "source_ids": [
+        "N33",
+        "N34"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0306",
+      "rule_key": "min_income",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "City map absent.",
+      "source_ids": [
+        "N33",
+        "N35"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0307",
+      "rule_key": "min_cibil",
+      "applicant_category": "salaried",
+      "status": "CONFLICTING",
+      "reason": "Blank.",
+      "source_ids": [
+        "N33",
+        "N35"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0317",
+      "rule_key": "tenure_max",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank.",
+      "source_ids": [
+        "N33"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0318",
+      "rule_key": "rate_min",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Offer/current applicability unresolved.",
+      "source_ids": [
+        "N33"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0319",
+      "rule_key": "rate_max",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank.",
+      "source_ids": [
+        "N33"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0320",
+      "rule_key": "processing_fee",
+      "applicant_category": "personal_loan",
+      "status": "CONFLICTING",
+      "reason": "Blank.",
+      "source_ids": [
+        "N33"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0327",
+      "rule_key": "min_cibil",
+      "applicant_category": "personal_loan",
+      "status": "UNKNOWN",
+      "reason": "Distributor cutoff not imported as universal.",
+      "source_ids": [
+        "N36"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0332",
+      "rule_key": "rate_min",
+      "applicant_category": "personal_loan",
+      "status": "UNKNOWN",
+      "reason": "Not contractual starting rate.",
+      "source_ids": [
+        "N36"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0333",
+      "rule_key": "rate_max",
+      "applicant_category": "personal_loan",
+      "status": "UNKNOWN",
+      "reason": "Not contractual maximum.",
+      "source_ids": [
+        "N36"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0338",
+      "rule_key": "processing_fee",
+      "applicant_category": "personal_loan",
+      "status": "UNKNOWN",
+      "reason": "Blank.",
+      "source_ids": [
+        "N36"
+      ],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L01",
+      "rule_id": "R0339",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L01",
+      "rule_id": "R0340",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L01",
+      "rule_id": "R0341",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L01",
+      "rule_id": "R0342",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L01",
+      "rule_id": "R0343",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L01",
+      "rule_id": "R0344",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0345",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0346",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0347",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0348",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0349",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0350",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0351",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0352",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0353",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L02",
+      "rule_id": "R0354",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0355",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0356",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0357",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0358",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0359",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0360",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0361",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0362",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0363",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L03",
+      "rule_id": "R0364",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0365",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0366",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0367",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0368",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0369",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0370",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0371",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0372",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0373",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0374",
+      "rule_key": "processing_fee",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L04",
+      "rule_id": "R0375",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0376",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0377",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0378",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0379",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0380",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0381",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0382",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0383",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0384",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0385",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0386",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L05",
+      "rule_id": "R0387",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0388",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0389",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0390",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0391",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0392",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0393",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0394",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0395",
+      "rule_key": "processing_fee",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L06",
+      "rule_id": "R0396",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0397",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0398",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0399",
+      "rule_key": "min_income",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0400",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0401",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0402",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0403",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0404",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0405",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0406",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0407",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L07",
+      "rule_id": "R0408",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0409",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0410",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0411",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0412",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0413",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0414",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0415",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0416",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0417",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0418",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0419",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0420",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L08",
+      "rule_id": "R0421",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0422",
+      "rule_key": "min_age",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0423",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0424",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0425",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0426",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0427",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0428",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0429",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0430",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0431",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0432",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0433",
+      "rule_key": "processing_fee",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L09",
+      "rule_id": "R0434",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0435",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0436",
+      "rule_key": "min_income",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0437",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0438",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0439",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0440",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0441",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0442",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0443",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0444",
+      "rule_key": "rate_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0445",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0446",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L10",
+      "rule_id": "R0447",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0448",
+      "rule_key": "min_age",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0449",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0450",
+      "rule_key": "min_income",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0451",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0452",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0453",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0454",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0455",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0456",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0457",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0458",
+      "rule_key": "rate_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0459",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0460",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0461",
+      "rule_key": "processing_fee",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L11",
+      "rule_id": "R0462",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0463",
+      "rule_key": "min_age",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0464",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0465",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0466",
+      "rule_key": "min_income",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0467",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0468",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0469",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0470",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0471",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0472",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0473",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0474",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0475",
+      "rule_key": "rate_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0476",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0477",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L12",
+      "rule_id": "R0478",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0479",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0480",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0481",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0482",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0483",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0484",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0485",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0486",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L13",
+      "rule_id": "R0487",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0488",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0489",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0490",
+      "rule_key": "min_cibil",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0491",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0492",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0493",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0494",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0495",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0496",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0497",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0498",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L14",
+      "rule_id": "R0499",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0500",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0501",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0502",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0503",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0504",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0505",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0506",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0507",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0508",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0509",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0510",
+      "rule_key": "tenure_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0511",
+      "rule_key": "processing_fee",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L15",
+      "rule_id": "R0512",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0513",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0514",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0515",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0516",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0517",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0518",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0519",
+      "rule_key": "amount_min",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L16",
+      "rule_id": "R0520",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0521",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0522",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0523",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0524",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0525",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0526",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0527",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0528",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0529",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L17",
+      "rule_id": "R0530",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0531",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0532",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0533",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0534",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0535",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0536",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0537",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0538",
+      "rule_key": "rate_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L18",
+      "rule_id": "R0539",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0540",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0541",
+      "rule_key": "employment_scope",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0542",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0543",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0544",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0545",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L19",
+      "rule_id": "R0546",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0547",
+      "rule_key": "max_age_application",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0548",
+      "rule_key": "max_age_at_maturity",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0549",
+      "rule_key": "min_current_job_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0550",
+      "rule_key": "min_total_experience_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0551",
+      "rule_key": "min_business_vintage_months",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0552",
+      "rule_key": "city_restrictions",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0553",
+      "rule_key": "emi_nmi_max_ratio",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0554",
+      "rule_key": "foir_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0555",
+      "rule_key": "income_multiple_max",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    },
+    {
+      "lender_id": "L20",
+      "rule_id": "R0556",
+      "rule_key": "salary_account_required",
+      "applicant_category": "ALL",
+      "status": "UNKNOWN",
+      "reason": "No usable active rule established in the recorded research; blank is not no restriction.",
+      "source_ids": [],
+      "resolution": "Obtain usable product/category-specific public evidence or retain manual review; do not invent threshold."
+    }
+  ],
+  "additional_gap_notes": [
+    "L01 above-60 government/defence exception needs review.",
+    "L02 dated offer and Golden Edge product mapping required.",
+    "L10 gross-income FOIR/tenure table needs reliable original alignment.",
+    "L13 full city-dependent salary map absent.",
+    "L16 ratio denominator/tier mapping incomplete.",
+    "L17 preferred-score and fee contradictions.",
+    "L18 exactly-six-EMI foreclosure boundary omitted; retention trigger unclear.",
+    "L19 new personal-loan sourcing explicitly unavailable.",
+    "L20 contractual nominal-rate bounds absent; APR is separate.",
+    "20-lender shortlist is not a verified lender-level ranking."
+  ],
+  "future_output_labels": [
+    "MEETS_PUBLISHED_CRITERIA",
+    "FAILS_PUBLISHED_CRITERIA",
+    "INSUFFICIENT_INFORMATION",
+    "MANUAL_REVIEW",
+    "PRODUCT_UNAVAILABLE"
+  ],
+  "forbidden_claims": [
+    "Guaranteed approval",
+    "Lender will approve",
+    "Verified approval probability without approval data",
+    "Exact personalised rate without lender offer"
+  ],
+  "legacy_reconciliation": {
+    "baseline_assumptions_archived": {
+      "status_definitions": {
+        "VERIFIED_OFFICIAL": "Seen on the lender's own page in this session (snippet or fetch).",
+        "VERIFIED_SECONDARY": "Seen only on a comparison/third-party page; used as hard rule but flagged.",
+        "OBSERVED_IN_CALCULATOR": "Calculator description evidence; no numeric value.",
+        "ESTIMATED": "Modelling estimate.",
+        "UNKNOWN": "Not found/not researched; never zero/false/eligible.",
+        "CONFLICTING": "Sources disagree, unresolved; engine will not use the value.",
+        "NOT_APPLICABLE": "Not relevant."
+      },
+      "global_affordability_assumption": {
+        "status": "ESTIMATED",
+        "emi_to_income_cap": 0.5,
+        "method": "S02 (secondary) says most banks/NBFCs cap total EMIs at 50-60% of net income; 0.50 chosen conservatively.",
+        "use": "Estimate max loan only for lenders with no published ratio. Never a rejection threshold; raises a warning only.",
+        "confidence": "LOW"
+      },
+      "amount_calculation": "max_amount = min(published amount_max if known, PV(headroom EMI, rate_max, permitted tenure)); headroom = cap*income - existing EMI. rate_max used (conservative) since applicant rate unknown; if rate unknown, only published cap shown."
+    },
+    "superseded_or_unconfirmed_filled_baseline_rules": [
+      {
+        "rule_id": "R0001",
+        "lender_id": "L01",
+        "rule_key": "min_age",
+        "applicant_category": "Xpress Credit",
+        "value": "21",
+        "unit": "years",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S07",
+        "extracted_text": "applicant aged about 21 years",
+        "notes": "'about 21' wording.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0002",
+        "lender_id": "L01",
+        "rule_key": "max_age_at_maturity",
+        "applicant_category": "Xpress Credit",
+        "value": "60",
+        "unit": "years",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S06",
+        "extracted_text": "Loan to be closed on or before Date of Retirement / End of Contract / 60 years of age",
+        "notes": "S07 says below 58 at maturity (secondary conflict); official used.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0003",
+        "lender_id": "L01",
+        "rule_key": "min_income",
+        "applicant_category": "Xpress Credit",
+        "value": "15000",
+        "unit": "INR/month net",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S07",
+        "extracted_text": "minimum monthly income should be Rs 15,000",
+        "notes": "Official figure truncated in snippet.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0004",
+        "lender_id": "L01",
+        "rule_key": "min_cibil",
+        "applicant_category": "Xpress Credit",
+        "value": "750",
+        "unit": "score",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S07",
+        "extracted_text": "minimum CIBIL score should be 750 or above",
+        "notes": "Secondary only.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0005",
+        "lender_id": "L01",
+        "rule_key": "salary_account_required",
+        "applicant_category": "Xpress Credit",
+        "value": "SBI",
+        "unit": "bank",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S06",
+        "extracted_text": "Individuals with Salary Account with SBI",
+        "notes": "Other SBI PL products not researched.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0006",
+        "lender_id": "L01",
+        "rule_key": "employment_scope",
+        "applicant_category": "ALL",
+        "value": "salaried",
+        "unit": "",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S06",
+        "extracted_text": "Page: Loans to Salaried Employees",
+        "notes": "Other SBI PL products not researched.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0007",
+        "lender_id": "L01",
+        "rule_key": "emi_nmi_max_ratio",
+        "applicant_category": "Xpress Credit",
+        "value": "0.50",
+        "unit": "ratio",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S07",
+        "extracted_text": "EMI/NMI Ratio should be less than 50%",
+        "notes": "Secondary only.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0008",
+        "lender_id": "L01",
+        "rule_key": "amount_max",
+        "applicant_category": "Xpress Credit",
+        "value": "3000000",
+        "unit": "INR",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S06",
+        "extracted_text": "Loan up to 30 lakhs",
+        "notes": "S09 says 20 lakh (conflict); official preferred.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0009",
+        "lender_id": "L01",
+        "rule_key": "tenure_min",
+        "applicant_category": "Xpress Credit",
+        "value": "6",
+        "unit": "months",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S06",
+        "extracted_text": "Minimum: 6 months",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0010",
+        "lender_id": "L01",
+        "rule_key": "tenure_max",
+        "applicant_category": "Xpress Credit",
+        "value": "72",
+        "unit": "months",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S08",
+        "extracted_text": "minimum of six months and a maximum of six years",
+        "notes": "Low-quality secondary.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0011",
+        "lender_id": "L01",
+        "rule_key": "rate_min",
+        "applicant_category": "Xpress Credit",
+        "value": "",
+        "unit": "% p.a.",
+        "status": "CONFLICTING",
+        "source_ids": "S07;S08;S09",
+        "extracted_text": "S07 11.15-14.30; S08 10.65-14.15; S09 lowest 10.30",
+        "notes": "No official rate retrieved.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0012",
+        "lender_id": "L01",
+        "rule_key": "rate_max",
+        "applicant_category": "Xpress Credit",
+        "value": "",
+        "unit": "% p.a.",
+        "status": "CONFLICTING",
+        "source_ids": "S07;S08",
+        "extracted_text": "S07 14.30; S08 14.15",
+        "notes": "As above.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0013",
+        "lender_id": "L01",
+        "rule_key": "prepayment",
+        "applicant_category": "Xpress Credit",
+        "value": "3% on takeover by other banks; none after 3-yr tenure completion",
+        "unit": "",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S06",
+        "extracted_text": "pre-payment penalty of 3% ... takeover cases",
+        "notes": "Snippet wording; rest truncated.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0023",
+        "lender_id": "L02",
+        "rule_key": "min_age",
+        "applicant_category": "ALL",
+        "value": "21",
+        "unit": "years",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "Must be between 21 years and 60 years of age",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0024",
+        "lender_id": "L02",
+        "rule_key": "max_age_application",
+        "applicant_category": "ALL",
+        "value": "60",
+        "unit": "years",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "Must be between 21 years and 60 years of age",
+        "notes": "Page does not say if 60 is at application or maturity; treated as at application (assumption).",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0025",
+        "lender_id": "L02",
+        "rule_key": "min_income",
+        "applicant_category": "salary_account_holder",
+        "value": "25000",
+        "unit": "INR/month net",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "HDFC Bank Salary Account holder: minimum net monthly income Rs 25,000",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0026",
+        "lender_id": "L02",
+        "rule_key": "min_income",
+        "applicant_category": "non_salary_account",
+        "value": "50000",
+        "unit": "INR/month net",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "Non-HDFC salary account: minimum net monthly income Rs 50,000",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0027",
+        "lender_id": "L02",
+        "rule_key": "min_cibil",
+        "applicant_category": "ALL",
+        "value": "650",
+        "unit": "score",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S02",
+        "extracted_text": "HDFC Bank requires a minimum CIBIL Score of 650",
+        "notes": "Not on retrieved official snippet.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0028",
+        "lender_id": "L02",
+        "rule_key": "employment_scope",
+        "applicant_category": "ALL",
+        "value": "salaried",
+        "unit": "",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "Product page is for salaried applicants",
+        "notes": "Self-employed HDFC product not researched.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0029",
+        "lender_id": "L02",
+        "rule_key": "rate_min",
+        "applicant_category": "ALL",
+        "value": "10.90",
+        "unit": "% p.a.",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "10.90% to 24.00% (Fixed Rate)",
+        "notes": "Conflict: S10 says 9.99%; official preferred. Range, not applicant quote.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0030",
+        "lender_id": "L02",
+        "rule_key": "rate_max",
+        "applicant_category": "ALL",
+        "value": "24.00",
+        "unit": "% p.a.",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "10.90% to 24.00% (Fixed Rate)",
+        "notes": "Fixed rate.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0031",
+        "lender_id": "L02",
+        "rule_key": "tenure_min",
+        "applicant_category": "ALL",
+        "value": "3",
+        "unit": "months",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "Tenure 03 Months to 72 Months",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0032",
+        "lender_id": "L02",
+        "rule_key": "tenure_max",
+        "applicant_category": "ALL",
+        "value": "72",
+        "unit": "months",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S01",
+        "extracted_text": "Tenure 03 Months to 72 Months",
+        "notes": "Conflict: S03 says 60; official preferred.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0033",
+        "lender_id": "L02",
+        "rule_key": "amount_max",
+        "applicant_category": "ALL",
+        "value": "4000000",
+        "unit": "INR",
+        "status": "VERIFIED_SECONDARY",
+        "source_ids": "S03",
+        "extracted_text": "up to Rs.40 lakh",
+        "notes": "Secondary only.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0255",
+        "lender_id": "L13",
+        "rule_key": "min_age",
+        "applicant_category": "ALL",
+        "value": "21",
+        "unit": "years",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S04",
+        "extracted_text": "Age: 21 years to 80 years*",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0256",
+        "lender_id": "L13",
+        "rule_key": "max_age_at_maturity",
+        "applicant_category": "ALL",
+        "value": "80",
+        "unit": "years",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S04",
+        "extracted_text": "You should be 80 years or younger at the end of the loan tenure",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0257",
+        "lender_id": "L13",
+        "rule_key": "min_cibil",
+        "applicant_category": "ALL",
+        "value": "685",
+        "unit": "score",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S04",
+        "extracted_text": "CIBIL score: 685 or higher",
+        "notes": "Repeated across Bajaj pages.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0258",
+        "lender_id": "L13",
+        "rule_key": "min_income",
+        "applicant_category": "salaried",
+        "value": "25001",
+        "unit": "INR/month",
+        "status": "CONFLICTING",
+        "source_ids": "S04;S05",
+        "extracted_text": "S04: 'Rs 25,001 or more to apply'; S05 page titled for salary below 15,000",
+        "notes": "Unresolved: S05 content not extractable. Engine will not use 25,001.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0259",
+        "lender_id": "L13",
+        "rule_key": "employment_scope",
+        "applicant_category": "ALL",
+        "value": "salaried",
+        "unit": "",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S04",
+        "extracted_text": "Eligibility lists monthly salary; salary slips requested",
+        "notes": "Self-employed rules not researched.",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0260",
+        "lender_id": "L13",
+        "rule_key": "tenure_min",
+        "applicant_category": "ALL",
+        "value": "12",
+        "unit": "months",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S04",
+        "extracted_text": "Tenure ranging from 12 months to 96 months",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      },
+      {
+        "rule_id": "R0261",
+        "lender_id": "L13",
+        "rule_key": "tenure_max",
+        "applicant_category": "ALL",
+        "value": "96",
+        "unit": "months",
+        "status": "VERIFIED_OFFICIAL",
+        "source_ids": "S04",
+        "extracted_text": "Tenure ranging from 12 months to 96 months",
+        "notes": "",
+        "date_accessed": "2026-10-10"
+      }
+    ],
+    "secondary_thresholds_not_promoted_to_active_verified_rules": true,
+    "blank_baseline_topics_retained_as_unknown_when_no_new_rule_exists": true
+  },
+  "file_manifest": {
+    "lenders.csv": "20 lender identities, product/source metadata and availability flags",
+    "lender_rules_detailed.csv": "Scoped published rules and explicit unresolved baseline topics",
+    "lender_rule_summary.csv": "One-row-per-lender view with source/date/status and actual counts",
+    "input_variables.csv": "Expanded model data dictionary",
+    "sources.csv": "Active and legacy source catalogue",
+    "model_assumptions.json": "Assumptions, regulatory rules, gaps and legacy audit"
+  },
+  "validation": {
+    "structural_checks_passed": true,
+    "lender_count": 20,
+    "detailed_rule_count": 556,
+    "unknown_rule_count": 228,
+    "conflicting_rule_count": 35,
+    "input_variable_count": 63,
+    "source_count": 63,
+    "regulatory_rule_count": 17,
+    "source_references_resolve": true,
+    "unique_rule_and_source_ids": true,
+    "unique_scoped_rule_keys": true,
+    "summary_counts_match_detail": true,
+    "unknown_and_conflicting_values_blank": true,
+    "lender_facts_newly_reverified_during_packaging": false,
+    "validation_scope": "File integrity and internal consistency only; not underwriting accuracy or production certification.",
+    "csv_roundtrip_checks_passed": true
+  },
+  "production_ready": false
 }
