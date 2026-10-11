@@ -1,0 +1,82 @@
+{
+  "mode": "DEMO",
+  "enabled": true,
+  "fallback_on_unresolved_scope": true,
+  "fallback_on_conflict": true,
+  "defaults": {
+    "min_age": {
+      "value": 21,
+      "unit": "years",
+      "basis": "Illustrative demo age minimum; not bank policy.",
+      "status": "ESTIMATED"
+    },
+    "max_age_application": {
+      "value": 60,
+      "unit": "years",
+      "basis": "Illustrative demo application-age ceiling; not bank policy.",
+      "status": "ESTIMATED"
+    },
+    "min_income": {
+      "value": 25000,
+      "unit": "INR/month net",
+      "basis": "Illustrative demo net-income floor; not bank policy.",
+      "status": "ESTIMATED"
+    },
+    "min_cibil": {
+      "value": 700,
+      "unit": "score",
+      "basis": "Arbitrary demo credit cutoff; not calibrated or a lender cutoff.",
+      "status": "ESTIMATED"
+    },
+    "employment_scope": {
+      "value": "salaried;self_employed",
+      "unit": "",
+      "basis": "Illustrative demo product scope; not actual lender coverage.",
+      "status": "ESTIMATED"
+    },
+    "amount_min": {
+      "value": 50000,
+      "unit": "INR",
+      "basis": "Illustrative demo principal minimum.",
+      "status": "ESTIMATED"
+    },
+    "amount_max": {
+      "value": 1000000,
+      "unit": "INR",
+      "basis": "Illustrative demo principal ceiling.",
+      "status": "ESTIMATED"
+    },
+    "tenure_min": {
+      "value": 12,
+      "unit": "months",
+      "basis": "Illustrative demo repayment range.",
+      "status": "ESTIMATED"
+    },
+    "tenure_max": {
+      "value": 60,
+      "unit": "months",
+      "basis": "Illustrative demo repayment range.",
+      "status": "ESTIMATED"
+    },
+    "rate_min": {
+      "value": 12,
+      "unit": "% p.a.",
+      "basis": "Hypothetical nominal interest rate; not predicted pricing.",
+      "status": "ESTIMATED"
+    },
+    "rate_max": {
+      "value": 24,
+      "unit": "% p.a.",
+      "basis": "Hypothetical nominal interest rate; not predicted pricing.",
+      "status": "ESTIMATED"
+    },
+    "emi_nmi_max_ratio": {
+      "value": 0.5,
+      "unit": "ratio",
+      "basis": "Hypothetical total-EMI/net-income ratio; not universal policy.",
+      "status": "ESTIMATED"
+    }
+  },
+  "version": "2.0",
+  "description": "Explicit illustrative DEMO: resolve each criterion from applicable official CSV evidence, otherwise use a labelled fixed model parameter. Never claims lender approval/rejection."
+}
