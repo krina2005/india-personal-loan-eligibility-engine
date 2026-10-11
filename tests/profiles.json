@@ -1,0 +1,268 @@
+[
+ {
+  "profile_id": "P01",
+  "purpose": "Strong salaried applicant, HDFC salary account",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 150000,
+   "cibil_score": 790,
+   "existing_monthly_emi": 10000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 1000000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P02",
+  "purpose": "Low credit score",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 80000,
+   "cibil_score": 610,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P03",
+  "purpose": "High existing EMIs (62% of income)",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 70000,
+   "cibil_score": 770,
+   "existing_monthly_emi": 43000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P04",
+  "purpose": "Newly employed (2 months)",
+  "inputs": {
+   "age": 23,
+   "employment_type": "salaried",
+   "net_monthly_income": 80000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 2,
+   "total_experience_months": 2,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P05",
+  "purpose": "Self-employed",
+  "inputs": {
+   "age": 32,
+   "employment_type": "self_employed",
+   "net_monthly_income": 90000,
+   "cibil_score": 740,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "OTHER",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": 60,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P06",
+  "purpose": "Near minimum age (21)",
+  "inputs": {
+   "age": 21,
+   "employment_type": "salaried",
+   "net_monthly_income": 40000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P07",
+  "purpose": "Near max age / age-at-maturity (57, wants 48 months)",
+  "inputs": {
+   "age": 57,
+   "employment_type": "salaried",
+   "net_monthly_income": 100000,
+   "cibil_score": 780,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P08",
+  "purpose": "Income just below HDFC salary-account threshold (24,999)",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 24999,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 200000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P09",
+  "purpose": "Potentially restricted/unsupported city (Leh)",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 90000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Leh",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P10",
+  "purpose": "Missing data: no bureau score",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 80000,
+   "cibil_score": null,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P11",
+  "purpose": "Below minimum age (20)",
+  "inputs": {
+   "age": 20,
+   "employment_type": "salaried",
+   "net_monthly_income": 40000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "SBI",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P12",
+  "purpose": "Above HDFC max age (61)",
+  "inputs": {
+   "age": 61,
+   "employment_type": "salaried",
+   "net_monthly_income": 90000,
+   "cibil_score": 760,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P13",
+  "purpose": "Income exactly at HDFC threshold (25,000), CIBIL exactly 650",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 25000,
+   "cibil_score": 650,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "HDFC Bank",
+   "requested_amount": 150000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ },
+ {
+  "profile_id": "P14",
+  "purpose": "CIBIL between SBI 750 and Bajaj 685 boundary (700), non-salary account",
+  "inputs": {
+   "age": 32,
+   "employment_type": "salaried",
+   "net_monthly_income": 60000,
+   "cibil_score": 700,
+   "existing_monthly_emi": 5000,
+   "salary_account_bank": "OTHER",
+   "requested_amount": 500000,
+   "preferred_tenure_months": 48,
+   "city": "Ahmedabad",
+   "current_job_months": 48,
+   "total_experience_months": 96,
+   "business_vintage_months": null,
+   "employer_category": null
+  }
+ }
+]

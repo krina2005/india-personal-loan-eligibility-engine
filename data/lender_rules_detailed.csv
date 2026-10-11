@@ -1,0 +1,423 @@
+rule_id,lender_id,rule_key,applicant_category,value,unit,status,source_ids,extracted_text,notes,date_accessed
+R0001,L01,min_age,Xpress Credit,21,years,VERIFIED_SECONDARY,S07,applicant aged about 21 years,'about 21' wording.,2026-10-10
+R0002,L01,max_age_at_maturity,Xpress Credit,60,years,VERIFIED_OFFICIAL,S06,Loan to be closed on or before Date of Retirement / End of Contract / 60 years of age,S07 says below 58 at maturity (secondary conflict); official used.,2026-10-10
+R0003,L01,min_income,Xpress Credit,15000,INR/month net,VERIFIED_SECONDARY,S07,"minimum monthly income should be Rs 15,000",Official figure truncated in snippet.,2026-10-10
+R0004,L01,min_cibil,Xpress Credit,750,score,VERIFIED_SECONDARY,S07,minimum CIBIL score should be 750 or above,Secondary only.,2026-10-10
+R0005,L01,salary_account_required,Xpress Credit,SBI,bank,VERIFIED_OFFICIAL,S06,Individuals with Salary Account with SBI,Other SBI PL products not researched.,2026-10-10
+R0006,L01,employment_scope,ALL,salaried,,VERIFIED_OFFICIAL,S06,Page: Loans to Salaried Employees,Other SBI PL products not researched.,2026-10-10
+R0007,L01,emi_nmi_max_ratio,Xpress Credit,0.50,ratio,VERIFIED_SECONDARY,S07,EMI/NMI Ratio should be less than 50%,Secondary only.,2026-10-10
+R0008,L01,amount_max,Xpress Credit,3000000,INR,VERIFIED_OFFICIAL,S06,Loan up to 30 lakhs,S09 says 20 lakh (conflict); official preferred.,2026-10-10
+R0009,L01,tenure_min,Xpress Credit,6,months,VERIFIED_OFFICIAL,S06,Minimum: 6 months,,2026-10-10
+R0010,L01,tenure_max,Xpress Credit,72,months,VERIFIED_SECONDARY,S08,minimum of six months and a maximum of six years,Low-quality secondary.,2026-10-10
+R0011,L01,rate_min,Xpress Credit,,% p.a.,CONFLICTING,S07;S08;S09,S07 11.15-14.30; S08 10.65-14.15; S09 lowest 10.30,No official rate retrieved.,2026-10-10
+R0012,L01,rate_max,Xpress Credit,,% p.a.,CONFLICTING,S07;S08,S07 14.30; S08 14.15,As above.,2026-10-10
+R0013,L01,prepayment,Xpress Credit,3% on takeover by other banks; none after 3-yr tenure completion,,VERIFIED_OFFICIAL,S06,pre-payment penalty of 3% ... takeover cases,Snippet wording; rest truncated.,2026-10-10
+R0014,L01,max_age_application,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0015,L01,min_current_job_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0016,L01,min_total_experience_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0017,L01,min_business_vintage_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0018,L01,city_restrictions,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0019,L01,foir_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0020,L01,income_multiple_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0021,L01,amount_min,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0022,L01,processing_fee,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0023,L02,min_age,ALL,21,years,VERIFIED_OFFICIAL,S01,Must be between 21 years and 60 years of age,,2026-10-10
+R0024,L02,max_age_application,ALL,60,years,VERIFIED_OFFICIAL,S01,Must be between 21 years and 60 years of age,Page does not say if 60 is at application or maturity; treated as at application (assumption).,2026-10-10
+R0025,L02,min_income,salary_account_holder,25000,INR/month net,VERIFIED_OFFICIAL,S01,"HDFC Bank Salary Account holder: minimum net monthly income Rs 25,000",,2026-10-10
+R0026,L02,min_income,non_salary_account,50000,INR/month net,VERIFIED_OFFICIAL,S01,"Non-HDFC salary account: minimum net monthly income Rs 50,000",,2026-10-10
+R0027,L02,min_cibil,ALL,650,score,VERIFIED_SECONDARY,S02,HDFC Bank requires a minimum CIBIL Score of 650,Not on retrieved official snippet.,2026-10-10
+R0028,L02,employment_scope,ALL,salaried,,VERIFIED_OFFICIAL,S01,Product page is for salaried applicants,Self-employed HDFC product not researched.,2026-10-10
+R0029,L02,rate_min,ALL,10.90,% p.a.,VERIFIED_OFFICIAL,S01,10.90% to 24.00% (Fixed Rate),"Conflict: S10 says 9.99%; official preferred. Range, not applicant quote.",2026-10-10
+R0030,L02,rate_max,ALL,24.00,% p.a.,VERIFIED_OFFICIAL,S01,10.90% to 24.00% (Fixed Rate),Fixed rate.,2026-10-10
+R0031,L02,tenure_min,ALL,3,months,VERIFIED_OFFICIAL,S01,Tenure 03 Months to 72 Months,,2026-10-10
+R0032,L02,tenure_max,ALL,72,months,VERIFIED_OFFICIAL,S01,Tenure 03 Months to 72 Months,Conflict: S03 says 60; official preferred.,2026-10-10
+R0033,L02,amount_max,ALL,4000000,INR,VERIFIED_SECONDARY,S03,up to Rs.40 lakh,Secondary only.,2026-10-10
+R0034,L02,max_age_at_maturity,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0035,L02,min_current_job_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0036,L02,min_total_experience_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0037,L02,min_business_vintage_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0038,L02,city_restrictions,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0039,L02,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0040,L02,foir_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0041,L02,income_multiple_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0042,L02,amount_min,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0043,L02,processing_fee,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0044,L02,salary_account_required,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0045,L03,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0046,L03,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0047,L03,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0048,L03,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0049,L03,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0050,L03,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0051,L03,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0052,L03,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0053,L03,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0054,L03,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0055,L03,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0056,L03,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0057,L03,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0058,L03,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0059,L03,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0060,L03,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0061,L03,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0062,L03,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0063,L03,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0064,L03,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0065,L03,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0066,L04,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0067,L04,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0068,L04,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0069,L04,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0070,L04,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0071,L04,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0072,L04,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0073,L04,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0074,L04,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0075,L04,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0076,L04,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0077,L04,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0078,L04,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0079,L04,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0080,L04,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0081,L04,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0082,L04,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0083,L04,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0084,L04,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0085,L04,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0086,L04,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0087,L05,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0088,L05,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0089,L05,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0090,L05,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0091,L05,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0092,L05,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0093,L05,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0094,L05,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0095,L05,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0096,L05,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0097,L05,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0098,L05,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0099,L05,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0100,L05,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0101,L05,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0102,L05,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0103,L05,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0104,L05,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0105,L05,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0106,L05,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0107,L05,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0108,L06,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0109,L06,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0110,L06,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0111,L06,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0112,L06,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0113,L06,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0114,L06,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0115,L06,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0116,L06,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0117,L06,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0118,L06,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0119,L06,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0120,L06,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0121,L06,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0122,L06,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0123,L06,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0124,L06,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0125,L06,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0126,L06,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0127,L06,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0128,L06,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0129,L07,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0130,L07,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0131,L07,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0132,L07,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0133,L07,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0134,L07,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0135,L07,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0136,L07,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0137,L07,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0138,L07,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0139,L07,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0140,L07,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0141,L07,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0142,L07,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0143,L07,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0144,L07,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0145,L07,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0146,L07,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0147,L07,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0148,L07,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0149,L07,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0150,L08,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0151,L08,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0152,L08,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0153,L08,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0154,L08,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0155,L08,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0156,L08,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0157,L08,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0158,L08,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0159,L08,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0160,L08,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0161,L08,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0162,L08,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0163,L08,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0164,L08,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0165,L08,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0166,L08,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0167,L08,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0168,L08,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0169,L08,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0170,L08,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0171,L09,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0172,L09,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0173,L09,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0174,L09,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0175,L09,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0176,L09,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0177,L09,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0178,L09,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0179,L09,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0180,L09,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0181,L09,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0182,L09,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0183,L09,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0184,L09,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0185,L09,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0186,L09,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0187,L09,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0188,L09,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0189,L09,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0190,L09,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0191,L09,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0192,L10,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0193,L10,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0194,L10,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0195,L10,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0196,L10,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0197,L10,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0198,L10,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0199,L10,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0200,L10,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0201,L10,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0202,L10,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0203,L10,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0204,L10,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0205,L10,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0206,L10,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0207,L10,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0208,L10,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0209,L10,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0210,L10,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0211,L10,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0212,L10,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0213,L11,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0214,L11,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0215,L11,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0216,L11,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0217,L11,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0218,L11,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0219,L11,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0220,L11,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0221,L11,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0222,L11,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0223,L11,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0224,L11,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0225,L11,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0226,L11,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0227,L11,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0228,L11,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0229,L11,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0230,L11,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0231,L11,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0232,L11,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0233,L11,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0234,L12,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0235,L12,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0236,L12,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0237,L12,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0238,L12,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0239,L12,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0240,L12,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0241,L12,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0242,L12,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0243,L12,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0244,L12,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0245,L12,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0246,L12,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0247,L12,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0248,L12,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0249,L12,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0250,L12,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0251,L12,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0252,L12,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0253,L12,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0254,L12,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0255,L13,min_age,ALL,21,years,VERIFIED_OFFICIAL,S04,Age: 21 years to 80 years*,,2026-10-10
+R0256,L13,max_age_at_maturity,ALL,80,years,VERIFIED_OFFICIAL,S04,You should be 80 years or younger at the end of the loan tenure,,2026-10-10
+R0257,L13,min_cibil,ALL,685,score,VERIFIED_OFFICIAL,S04,CIBIL score: 685 or higher,Repeated across Bajaj pages.,2026-10-10
+R0258,L13,min_income,salaried,25001,INR/month,CONFLICTING,S04;S05,"S04: 'Rs 25,001 or more to apply'; S05 page titled for salary below 15,000","Unresolved: S05 content not extractable. Engine will not use 25,001.",2026-10-10
+R0259,L13,employment_scope,ALL,salaried,,VERIFIED_OFFICIAL,S04,Eligibility lists monthly salary; salary slips requested,Self-employed rules not researched.,2026-10-10
+R0260,L13,tenure_min,ALL,12,months,VERIFIED_OFFICIAL,S04,Tenure ranging from 12 months to 96 months,,2026-10-10
+R0261,L13,tenure_max,ALL,96,months,VERIFIED_OFFICIAL,S04,Tenure ranging from 12 months to 96 months,,2026-10-10
+R0262,L13,city_restrictions,ALL,,,OBSERVED_IN_CALCULATOR,S11,"Calculator estimates loan using salary, existing dues and city of residence",City matters but cities/thresholds unpublished -> not evaluable.,2026-10-10
+R0263,L13,max_age_application,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0264,L13,min_current_job_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0265,L13,min_total_experience_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0266,L13,min_business_vintage_months,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0267,L13,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0268,L13,foir_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0269,L13,income_multiple_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0270,L13,amount_min,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0271,L13,amount_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0272,L13,rate_min,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0273,L13,rate_max,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0274,L13,processing_fee,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0275,L13,salary_account_required,ALL,,,UNKNOWN,,,Not found in retrieved snippets; official page not fully read.,2026-10-10
+R0276,L14,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0277,L14,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0278,L14,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0279,L14,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0280,L14,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0281,L14,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0282,L14,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0283,L14,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0284,L14,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0285,L14,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0286,L14,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0287,L14,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0288,L14,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0289,L14,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0290,L14,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0291,L14,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0292,L14,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0293,L14,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0294,L14,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0295,L14,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0296,L14,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0297,L15,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0298,L15,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0299,L15,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0300,L15,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0301,L15,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0302,L15,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0303,L15,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0304,L15,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0305,L15,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0306,L15,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0307,L15,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0308,L15,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0309,L15,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0310,L15,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0311,L15,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0312,L15,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0313,L15,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0314,L15,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0315,L15,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0316,L15,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0317,L15,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0318,L16,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0319,L16,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0320,L16,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0321,L16,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0322,L16,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0323,L16,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0324,L16,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0325,L16,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0326,L16,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0327,L16,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0328,L16,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0329,L16,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0330,L16,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0331,L16,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0332,L16,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0333,L16,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0334,L16,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0335,L16,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0336,L16,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0337,L16,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0338,L16,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0339,L17,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0340,L17,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0341,L17,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0342,L17,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0343,L17,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0344,L17,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0345,L17,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0346,L17,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0347,L17,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0348,L17,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0349,L17,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0350,L17,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0351,L17,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0352,L17,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0353,L17,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0354,L17,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0355,L17,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0356,L17,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0357,L17,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0358,L17,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0359,L17,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0360,L18,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0361,L18,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0362,L18,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0363,L18,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0364,L18,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0365,L18,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0366,L18,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0367,L18,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0368,L18,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0369,L18,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0370,L18,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0371,L18,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0372,L18,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0373,L18,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0374,L18,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0375,L18,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0376,L18,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0377,L18,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0378,L18,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0379,L18,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0380,L18,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0381,L19,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0382,L19,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0383,L19,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0384,L19,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0385,L19,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0386,L19,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0387,L19,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0388,L19,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0389,L19,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0390,L19,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0391,L19,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0392,L19,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0393,L19,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0394,L19,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0395,L19,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0396,L19,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0397,L19,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0398,L19,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0399,L19,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0400,L19,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0401,L19,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0402,L20,min_age,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0403,L20,max_age_application,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0404,L20,max_age_at_maturity,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0405,L20,min_income,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0406,L20,min_cibil,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0407,L20,employment_scope,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0408,L20,min_current_job_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0409,L20,min_total_experience_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0410,L20,min_business_vintage_months,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0411,L20,city_restrictions,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0412,L20,emi_nmi_max_ratio,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0413,L20,foir_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0414,L20,income_multiple_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0415,L20,amount_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0416,L20,amount_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0417,L20,rate_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0418,L20,rate_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0419,L20,tenure_min,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0420,L20,tenure_max,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0421,L20,processing_fee,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10
+R0422,L20,salary_account_required,ALL,,,UNKNOWN,,,Lender not researched in this session (no search performed).,2026-10-10

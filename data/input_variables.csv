@@ -1,0 +1,15 @@
+name,label,type,unit,description,required,allowed_values,source_category,validation,used_by,provided_by
+age,Age,float,years,Completed age at application,Y,18-100,APPLICANT,document-verifiable (DOB),"L01,L02,L13 min/max age & maturity",APPLICANT
+employment_type,Employment type,enum,,salaried | self_employed,Y,"salaried,self_employed",APPLICANT,document,all (product scope),APPLICANT
+net_monthly_income,Net monthly income,float,INR/month,Take-home salary. Self-employed: documented monthly income only; NOT interchangeable with turnover or profit,Y,>=0,DOCUMENT,salary slips / bank statement,"L01,L02 min income; EMI ratio",DOCUMENT
+cibil_score,Credit score (CIBIL),int,points,Bureau score; null if unavailable,Y,300-900 or null,BUREAU,bureau pull with consent,"L01,L02,L13",BUREAU
+existing_monthly_emi,Existing monthly EMIs,float,INR/month,Sum of EMIs on active loans/cards,Y,>=0,BUREAU,bureau + declaration,L01 EMI/NMI cap; global affordability assumption,BUREAU
+salary_account_bank,Salary account bank,enum,,HDFC Bank | SBI | OTHER,N,,DOCUMENT,bank statement,"L01 (required), L02 (income tier)",DOCUMENT
+requested_amount,Requested loan amount,float,INR,Amount sought,Y,>0,APPLICANT,,compared with estimated max,APPLICANT
+preferred_tenure_months,Preferred tenure,int,months,Desired repayment period,Y,3-120,APPLICANT,,"tenure limits, EMI",APPLICANT
+city,City of residence,string,,Only used if a city rule exists,N,,APPLICANT,address proof,L13 calculator mentions city; no rule found,APPLICANT
+current_job_months,Months with current employer,int,months,No verified rule uses it yet; kept to test UNKNOWN handling,N,>=0,DOCUMENT,,none verified,DOCUMENT
+total_experience_months,Total work experience,int,months,No verified rule uses it yet,N,>=0,DOCUMENT,,none verified,DOCUMENT
+business_vintage_months,Business vintage,int,months,Self-employed only; no verified rule yet,N,>=0,DOCUMENT,ITR/GST,none verified,DOCUMENT
+employer_category,Employer category,string,,No verified rule uses it yet,N,,APPLICANT,,none verified,APPLICANT
+derived_obligation_ratio,(Derived) obligations ratio,float,ratio,(existing EMI + new EMI)/net income,calculated,0-10,MODEL,,L01 cap; global assumption,CALCULATED

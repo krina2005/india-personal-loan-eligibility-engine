@@ -1,0 +1,19 @@
+{
+  "status_definitions": {
+    "VERIFIED_OFFICIAL": "Seen on the lender's own page in this session (snippet or fetch).",
+    "VERIFIED_SECONDARY": "Seen only on a comparison/third-party page; used as hard rule but flagged.",
+    "OBSERVED_IN_CALCULATOR": "Calculator description evidence; no numeric value.",
+    "ESTIMATED": "Modelling estimate.",
+    "UNKNOWN": "Not found/not researched; never zero/false/eligible.",
+    "CONFLICTING": "Sources disagree, unresolved; engine will not use the value.",
+    "NOT_APPLICABLE": "Not relevant."
+  },
+  "global_affordability_assumption": {
+    "status": "ESTIMATED",
+    "emi_to_income_cap": 0.5,
+    "method": "S02 (secondary) says most banks/NBFCs cap total EMIs at 50-60% of net income; 0.50 chosen conservatively.",
+    "use": "Estimate max loan only for lenders with no published ratio. Never a rejection threshold; raises a warning only.",
+    "confidence": "LOW"
+  },
+  "amount_calculation": "max_amount = min(published amount_max if known, PV(headroom EMI, rate_max, permitted tenure)); headroom = cap*income - existing EMI. rate_max used (conservative) since applicant rate unknown; if rate unknown, only published cap shown."
+}
